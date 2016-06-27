@@ -12,14 +12,14 @@ from numpy import sin
 from numpy import cos
 from numpy import ones
 
-TWOPI = 1.92*pi
+TWOPI = 1.90*pi
 
 BACK = [1,1,1,1]
 FRONT = [0,0,0,0.05]
 LIGHT = [0,0,0,0.05]
 
 # SIZE = 5500
-SIZE = 1024
+SIZE = 2048
 
 EDGE = 0.15
 RAD = 0.5-EDGE
@@ -61,9 +61,9 @@ def main():
 
   ## messy spheres
   n = 35
-  spin_scale = 0.00 * pi
+  spin_scale = 0.05 * pi
   for i, snum in enumerate(linspace(10,150,n).astype('int')):
-    a = sorted(i * spin_scale + 0.25 * pi + random(snum)*TWOPI)
+    a = sorted(i * spin_scale + -0.75 * pi + random(snum)*TWOPI)
     r = ones((snum, 1))*(EDGE + (i/(n-1.0))*(RAD-EDGE))
     xy = -0.2 + (i/100.0) * 0.4 + 0.5+column_stack((cos(a), sin(a)))*r
     sand.init(xy)
